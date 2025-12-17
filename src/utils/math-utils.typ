@@ -1,4 +1,5 @@
 #import "common-utils.typ": *
+#import "@preview/physica:0.9.7":*
 
 #let translation = (
   problem: (
@@ -78,7 +79,7 @@
 
   // 给带有 label 的公式编号
   show math.equation: it => {
-    if it.fields().keys().contains("label") {
+    if it.fields().keys().contains("label") and it.label != el.adv.native-format-label{
       math.equation(
         block: true,
         numbering: n => {
@@ -95,18 +96,18 @@
   }
 
   show ref: it => context {
-    let el = it.element
-    if el != none and el.func() == math.equation {
-      let count = counter(heading).at(el.location())
+    let ell = it.element
+    if ell != none and ell.func() == math.equation {
+      let count = counter(heading).at(ell.location())
       let h1 = count.first()
       let h2 = count.at(1, default: 0)
       let fmt = "Eq"
       if text.lang == "zh" { fmt = "式" }
-      link(el.location(), numbering(
+      link(ell.location(), numbering(
         fmt + " (1.1.1)",
         h1,
         h2,
-        counter(math.equation).at(el.location()).at(0) + 1,
+        counter(math.equation).at(ell.location()).at(0) + 1,
       ))
     } else {
       it

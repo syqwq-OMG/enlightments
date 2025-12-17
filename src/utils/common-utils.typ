@@ -1,4 +1,4 @@
-#import "@preview/itemize:0.1.2" as el
+#import "@preview/itemize:0.2.0" as el
 #import "@preview/zebraw:0.5.5": zebraw
 #import emoji: drops, eyes
 
@@ -18,7 +18,7 @@
   "3": rgb("FFBA49"),
   "purple": rgb("#4f078d"),
   "definition": rgb("#255C99"), // 3 definition
-  "problem": rgb("7B0828"), // 4 problem
+  "problem": rgb("#1294a5"), // 4 problem
   "theorem": rgb("4956cf"), // 5 theorem
   "example": rgb("FFD166"), // 6 example
   "remark": rgb("A997DF"), // 7 remark
@@ -38,7 +38,7 @@
   // 汉语标点
   show "。": ". "
   // 段落首行缩进
-  set par(first-line-indent: 2em)
+  set par(first-line-indent: 0em)
 
   // 更好的列表（列表项公式居中）
   show ref: el.ref-enum

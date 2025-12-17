@@ -1,4 +1,4 @@
-#import "@preview/theorion:0.4.0": make-frame, theorem-counter, theorion-i18n-map
+#import "@preview/theorion:0.4.1": make-frame, theorem-counter, theorion-i18n-map
 #import "@preview/showybox:2.0.4": showybox
 #import "common-utils.typ": *
 #import "math-utils.typ": translation
@@ -79,6 +79,7 @@
     frame: (
       title-color: fill,
       border-color: fill.darken(10%),
+      body-inset: 1em,
     ),
     shadow: (
       color: luma(220),
@@ -131,7 +132,6 @@
   // render: rect-box-style.with(fill: colors.at("theorem")),
   // render: line-box-style.with(fill: colors.at("purple").lighten(60%)),
   render: round-box-style.with(fill: colors.at("purple")),
-
 )
 
 #let (definition-counter, definition-box, definition, show-definition) = make-frame(
@@ -186,9 +186,9 @@
 #let (problem-counter, problem-box, problem, show-problem) = make-frame(
   "problem",
   theorion-i18n-map.at("problem"),
-  inherited-levels: 1,
+  inherited-levels: 2,
   inherited-from: heading,
-  render: rect-box-style.with(fill: colors.at("problem")),
+  render: round-box-style.with(fill: colors.at("problem")),
 )
 
 #let (corollary-counter, corollary-box, corollary, show-corollary) = make-frame(
@@ -205,7 +205,7 @@
 )
 
 #let proof(body, name: none, thmprefix: default-thmprefix, thmtitle: default-thmtitle) = context {
-  thmprefix(translation.proof.at(text.lang))
+  thmprefix(translation.proof.en)
   if name != none {
     [ #thmtitle[#name]]
   }
@@ -216,7 +216,7 @@
 }
 
 #let solution(body, name: none, thmprefix: default-thmprefix, thmtitle: default-thmtitle) = context {
-  thmprefix(translation.solution.at(text.lang))
+  thmprefix(translation.solution.en)
   if name != none {
     [ #thmtitle[#name]]
   }
