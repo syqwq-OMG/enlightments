@@ -18,7 +18,7 @@
   "3": rgb("FFBA49"),
   "purple": rgb("#4f078d"),
   "definition": rgb("#255C99"), // 3 definition
-  "problem": rgb("#1294a5"), // 4 problem
+  "problem": rgb("#041d52"), // 4 problem
   "theorem": rgb("4956cf"), // 5 theorem
   "example": rgb("FFD166"), // 6 example
   "remark": rgb("A997DF"), // 7 remark
